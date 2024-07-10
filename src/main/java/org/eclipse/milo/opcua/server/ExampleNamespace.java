@@ -53,8 +53,8 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
         ));
 
         // ADD VALUE
-        // sOpcDayMontYear
-        {   String name = "sOpcDayMontYear";
+        // sOpcDayMonthYear
+        {   String name = "sOpcDayMonthYear";
             NodeId typeId = Identifiers.String;
             Variant variant = new Variant("00-00-0000");
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -95,8 +95,8 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // vOpcDayMontYear
-        {   String name = "vOpcDayMontYear";
+        // vOpcDayMonthYear
+        {   String name = "vOpcDayMonthYear";
             NodeId typeId = Identifiers.String;
             Variant variant = new Variant("00-00-000");
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -121,7 +121,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.String;
             Variant variant = new Variant("00-00");
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
@@ -142,7 +142,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.String;
             Variant variant = new Variant("00-00-0000");
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
@@ -163,7 +163,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.String;
             Variant variant = new Variant("00-00");
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
@@ -184,7 +184,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
@@ -205,7 +205,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
@@ -226,7 +226,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
@@ -247,7 +247,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
@@ -268,7 +268,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
@@ -290,7 +290,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
@@ -311,7 +311,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
@@ -332,7 +332,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
@@ -353,7 +353,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId("VantagePro2/Dynamic/" + name))
+                    .setNodeId(newNodeId(name))
                     .setAccessLevel(AccessLevel.READ_ONLY)
                     .setBrowseName(newQualifiedName(name))
                     .setDisplayName(LocalizedText.english(name))
