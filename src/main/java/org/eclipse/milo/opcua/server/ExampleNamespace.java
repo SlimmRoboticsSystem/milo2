@@ -53,50 +53,8 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
         ));
 
         // ADD VALUE
-        // sOpcDayMonthYear
-        {   String name = "sOpcDayMonthYear";
-            NodeId typeId = Identifiers.String;
-            Variant variant = new Variant("00-00-0000");
-            UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId(name))
-                    .setAccessLevel(AccessLevel.READ_ONLY)
-                    .setBrowseName(newQualifiedName(name))
-                    .setDisplayName(LocalizedText.english(name))
-                    .setDataType(typeId)
-                    .setTypeDefinition(Identifiers.BaseDataVariableType)
-                    .build();
-            node.setValue(new DataValue(variant));
-            node.getFilterChain().addLast(
-                    new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
-            );
-            getNodeManager().addNode(node);
-            folderNode.addOrganizes(node);}
-
-        // sOpcHourMinute
-        {   String name = "sOpcHourMinute";
-            NodeId typeId = Identifiers.String;
-            Variant variant = new Variant("00-00");
-            UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
-                    .setNodeId(newNodeId(name))
-                    .setAccessLevel(AccessLevel.READ_ONLY)
-                    .setBrowseName(newQualifiedName(name))
-                    .setDisplayName(LocalizedText.english(name))
-                    .setDataType(typeId)
-                    .setTypeDefinition(Identifiers.BaseDataVariableType)
-                    .build();
-            node.setValue(new DataValue(variant));
-            node.getFilterChain().addLast(
-                    new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
-            );
-            getNodeManager().addNode(node);
-            folderNode.addOrganizes(node);}
-
-        // vOpcDayMonthYear
-        {   String name = "vOpcDayMonthYear";
+        // serverDayMonthYear
+        {   String name = "serverDayMonthYear";
             NodeId typeId = Identifiers.String;
             Variant variant = new Variant("00-00-000");
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -110,14 +68,13 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // vOpcHourMinute
-        {   String name = "vOpcHourMinute";
+        // serverHourMinute
+        {   String name = "serverHourMinute";
             NodeId typeId = Identifiers.String;
             Variant variant = new Variant("00-00");
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -131,14 +88,13 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // pOpcDayMontYear
-        {   String name = "pOpcDayMontYear";
+        // meteoDayMonthYear
+        {   String name = "meteoDayMonthYear";
             NodeId typeId = Identifiers.String;
             Variant variant = new Variant("00-00-0000");
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -152,14 +108,13 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // pOpcHourMinute
-        {   String name = "pOpcHourMinute";
+        // meteoHourMinute
+        {   String name = "meteoHourMinute";
             NodeId typeId = Identifiers.String;
             Variant variant = new Variant("00-00");
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -173,14 +128,53 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // pOpcTempAir
-        {   String name = "pOpcTempAir";
+        // payloadDayMontYear
+        {   String name = "payloadDayMontYear";
+            NodeId typeId = Identifiers.String;
+            Variant variant = new Variant("00-00-0000");
+            UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
+                    .setNodeId(newNodeId(name))
+                    .setAccessLevel(AccessLevel.READ_ONLY)
+                    .setBrowseName(newQualifiedName(name))
+                    .setDisplayName(LocalizedText.english(name))
+                    .setDataType(typeId)
+                    .setTypeDefinition(Identifiers.BaseDataVariableType)
+                    .build();
+            node.setValue(new DataValue(variant));
+            node.getFilterChain().addLast(
+                    new AttributeLoggingFilter(),
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
+            );
+            getNodeManager().addNode(node);
+            folderNode.addOrganizes(node);}
+
+        // payloadHourMinute
+        {   String name = "payloadHourMinute";
+            NodeId typeId = Identifiers.String;
+            Variant variant = new Variant("00-00");
+            UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
+                    .setNodeId(newNodeId(name))
+                    .setAccessLevel(AccessLevel.READ_ONLY)
+                    .setBrowseName(newQualifiedName(name))
+                    .setDisplayName(LocalizedText.english(name))
+                    .setDataType(typeId)
+                    .setTypeDefinition(Identifiers.BaseDataVariableType)
+                    .build();
+            node.setValue(new DataValue(variant));
+            node.getFilterChain().addLast(
+                    new AttributeLoggingFilter(),
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
+            );
+            getNodeManager().addNode(node);
+            folderNode.addOrganizes(node);}
+
+        // payloadTempAir
+        {   String name = "payloadTempAir";
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -194,14 +188,13 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // pOpcRain
-        {   String name = "pOpcRain";
+        // payloadRain
+        {   String name = "payloadRain";
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -215,14 +208,13 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // pOpcPressure
-        {   String name = "pOpcPressure";
+        // payloadPressure
+        {   String name = "payloadPressure";
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -236,14 +228,13 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // pOpcInsideHumidity
-        {   String name = "pOpcInsideHumidity";
+        // payloadInsideHumidity
+        {   String name = "payloadInsideHumidity";
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -257,14 +248,13 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // pOpcAverageWindSpeed
-        {   String name = "pOpcAverageWindSpeed";
+        // payloadAverageWindSpeed
+        {   String name = "payloadAverageWindSpeed";
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -278,15 +268,14 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
 
-        // pOpcWindDirect
-        {   String name = "pOpcWindDirect";
+        // payloadWindDirect
+        {   String name = "payloadWindDirect";
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -300,14 +289,13 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // sOpcSysTries
-        {   String name = "sOpcSysTries";
+        // serverTries
+        {   String name = "serverTries";
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -321,14 +309,13 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // sOpcSysStep
-        {   String name = "sOpcSysStep";
+        // serverStep
+        {   String name = "serverStep";
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -342,14 +329,13 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
 
-        // sOpcSysCountSync
-        {   String name = "sOpcSysCountSync";
+        // serverCountSync
+        {   String name = "serverCountSync";
             NodeId typeId = Identifiers.Double;
             Variant variant = new Variant(0);
             UaVariableNode node = new UaVariableNode.UaVariableNodeBuilder(getNodeContext())
@@ -363,12 +349,10 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(
-                            ctx -> new DataValue(new Variant(random.nextInt())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
-
     }
 
 
