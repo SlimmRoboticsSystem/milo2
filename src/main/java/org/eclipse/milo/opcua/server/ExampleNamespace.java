@@ -18,13 +18,22 @@ import org.eclipse.milo.opcua.stack.core.types.builtin.DataValue;
 import org.eclipse.milo.opcua.stack.core.types.builtin.LocalizedText;
 import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
 import org.eclipse.milo.opcua.stack.core.types.builtin.Variant;
+import java.util.function.Predicate;
+import org.eclipse.milo.opcua.sdk.server.nodes.filters.AttributeFilter;
+import org.eclipse.milo.opcua.stack.core.AttributeId;
+
 
 
 public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
 
-    public static final String NAMESPACE_URI = "urn:eclipse:milo:meteo2";
+    private static final String NAMESPACE_URI = "urn:eclipse:milo:meteo2";
     private final Random random = new Random();
     private final SubscriptionModel subscriptionModel;
+
+    private static class AttributeLoggingFilter implements AttributeFilter {
+        public AttributeLoggingFilter() {this(attributeId -> true);}
+        public AttributeLoggingFilter(Predicate<AttributeId> attributePredicate) {}
+    }
 
     ExampleNamespace(OpcUaServer server) {
         super(server, NAMESPACE_URI);
@@ -68,7 +77,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextInt())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
@@ -88,7 +97,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextInt())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
@@ -108,7 +117,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextInt())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
@@ -128,7 +137,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextInt())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
@@ -148,7 +157,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextInt())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
@@ -168,7 +177,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
             node.setValue(new DataValue(variant));
             node.getFilterChain().addLast(
                     new AttributeLoggingFilter(),
-                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextDouble())))
+                    AttributeFilters.getValue(ctx -> new DataValue(new Variant(random.nextInt())))
             );
             getNodeManager().addNode(node);
             folderNode.addOrganizes(node);}
