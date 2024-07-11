@@ -32,7 +32,7 @@ public class OPCUANamespace extends ManagedNamespaceWithLifecycle {
 
     private static class AttributeLoggingFilter implements AttributeFilter {
         public AttributeLoggingFilter() {this(attributeId -> true);}
-        public AttributeLoggingFilter(Predicate<AttributeId> attributePredicate) {}
+        public AttributeLoggingFilter(Predicate<AttributeId> ignoredAttributePredicate) {}
     }
 
     OPCUANamespace(OpcUaServer server) {
