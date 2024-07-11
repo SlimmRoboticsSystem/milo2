@@ -24,7 +24,7 @@ import org.eclipse.milo.opcua.stack.core.AttributeId;
 
 
 
-public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
+public class OPCUANamespace extends ManagedNamespaceWithLifecycle {
 
     private static final String NAMESPACE_URI = "urn:eclipse:milo:meteo2";
     private final Random random = new Random();
@@ -35,7 +35,7 @@ public class ExampleNamespace extends ManagedNamespaceWithLifecycle {
         public AttributeLoggingFilter(Predicate<AttributeId> attributePredicate) {}
     }
 
-    ExampleNamespace(OpcUaServer server) {
+    OPCUANamespace(OpcUaServer server) {
         super(server, NAMESPACE_URI);
         subscriptionModel = new SubscriptionModel(server, this);
         DataTypeDictionaryManager dictionaryManager = new DataTypeDictionaryManager(getNodeContext(), NAMESPACE_URI);

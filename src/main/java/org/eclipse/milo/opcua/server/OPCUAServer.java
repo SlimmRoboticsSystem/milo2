@@ -19,22 +19,21 @@ import static org.eclipse.milo.opcua.sdk.server.api.config.OpcUaServerConfig.USE
 import org.eclipse.milo.opcua.sdk.server.identity.AnonymousIdentityValidator;
 
 
-public class ExampleServer {
-
+public class OPCUAServer {
+    private final OpcUaServer server;
+    public static final String SERVER_URI = "urn:eclipse:milo:meteo2";
     private static final int TCP_BIND_PORT = 12686;
 
     public static void main(String[] args) throws Exception {
-        ExampleServer server = new ExampleServer();
+        OPCUAServer server = new OPCUAServer();
         server.startup().get();
         final CompletableFuture<Void> future = new CompletableFuture<>();
         Runtime.getRuntime().addShutdownHook(new Thread(() -> future.complete(null)));
         future.get();
     }
 
-    private final OpcUaServer server;
-    public static final String SERVER_URI = "urn:eclipse:milo:meteo2";
 
-    public ExampleServer() {
+    public OPCUAServer() {
         Set<EndpointConfiguration> endpointConfigurations = createEndpointConfigurations();
         OpcUaServerConfig serverConfig = OpcUaServerConfig.builder()
                 .setApplicationUri(SERVER_URI)
@@ -51,10 +50,9 @@ public class ExampleServer {
                 .setProductUri("urn:eclipse:milo:meteo2-server")
                 .build();
         server = new OpcUaServer(serverConfig);
-        ExampleNamespace exampleNamespace = new ExampleNamespace(server);
-        exampleNamespace.startup();
+        OPCUANamespace OPCUANamespace = new OPCUANamespace(server);
+        OPCUANamespace.startup();
     }
-
 
     private Set<EndpointConfiguration> createEndpointConfigurations() {
         Set<EndpointConfiguration> endpointConfigurations = new LinkedHashSet<>();
@@ -68,14 +66,14 @@ public class ExampleServer {
                 EndpointConfiguration.Builder builder = EndpointConfiguration.newBuilder()
                         .setBindAddress(bindAddress)
                         .setHostname(hostname)
-                        .setPath("/data")
+                        .setPath("")
+                        .setSecurityPolicy(SecurityPolicy.None)
+                        .setSecurityMode(MessageSecurityMode.None)
                         .addTokenPolicies(USER_TOKEN_POLICY_ANONYMOUS);
 
-                EndpointConfiguration.Builder noSecurityBuilder = builder.copy()
-                        .setSecurityPolicy(SecurityPolicy.None)
-                        .setSecurityMode(MessageSecurityMode.None);
-
+                EndpointConfiguration.Builder noSecurityBuilder = builder.copy();
                 endpointConfigurations.add(buildTcpEndpoint(noSecurityBuilder));
+
             }
         }
         return endpointConfigurations;
