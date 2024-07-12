@@ -57,10 +57,10 @@ public class OPCUAServer {
     private Set<EndpointConfiguration> createEndpointConfigurations() {
         Set<EndpointConfiguration> endpointConfigurations = new LinkedHashSet<>();
         List<String> bindAddresses = newArrayList();
-        bindAddresses.add("0.0.0.0");
+        bindAddresses.add("127.0.0.1");
         Set<String> hostnames = new LinkedHashSet<>();
         hostnames.add(HostnameUtil.getHostname());
-        hostnames.addAll(HostnameUtil.getHostnames("0.0.0.0"));
+        hostnames.addAll(HostnameUtil.getHostnames("127.0.0.1"));
         for (String bindAddress : bindAddresses) {
             for (String hostname : hostnames) {
                 EndpointConfiguration.Builder builder = EndpointConfiguration.newBuilder()
